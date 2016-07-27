@@ -32,10 +32,11 @@ class ReposTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("repoCell")
-        cell?.textLabel?.text = store.repositories[indexPath.row].fullName as String
+        let cell = tableView.dequeueReusableCellWithIdentifier("repoCell", forIndexPath: indexPath)
         
-        return cell!
+        cell.textLabel?.text = store.repositories[indexPath.row].fullName as String
+        
+        return cell
     }
     // MARK: - Table view data source
     
