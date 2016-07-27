@@ -11,7 +11,7 @@ import UIKit
 class GithubAPIClient {
     
     class func getRepositoriesWithCompletion(completion: (NSArray) -> ()) {
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        let session = NSURLSession.sharedSession()
         if let githubURL = NSURL(string: api_URL) {
             
             let githubTask = session.dataTaskWithURL(githubURL) { (data, response, error) in

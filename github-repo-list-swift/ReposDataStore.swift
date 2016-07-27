@@ -16,15 +16,18 @@ class ReposDataStore {
     var repositories : [GithubRepository] = []
     
     func getRepositoriesWithCompletion(completion: () -> ())  {
+        repositories.removeAll()
         GithubAPIClient.getRepositoriesWithCompletion { (responseData) in
             
-            for case let repo as [String: AnyObject] in responseData  {
-
-                let newRepo =  GithubRepository(dictionary: repo)
-//                print (newRepo.fullName)
-//                print (newRepo.htmlURL)
-//                print (newRepo.repositoryID)
-                self.repositories.append(newRepo)
+            //for case let repo as [String: AnyObject] in responseData  {
+            for i in 0...1 {
+                
+                if let data = responseData[i] as? [String: AnyObject] {
+                    
+                    let newRepo =  GithubRepository(dictionary: data)
+                    
+                    self.repositories.append(newRepo)
+                }
             }
             print (self.repositories)
             completion()
