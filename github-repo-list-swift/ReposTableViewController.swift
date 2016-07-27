@@ -12,20 +12,31 @@ class ReposTableViewController: UITableViewController {
     
     let store = ReposDataStore.sharedInstance
     
+    var VCCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.accessibilityLabel = "tableView"
     
-        store.getRepositoriesWithCompletion { 
-            print (self.store.repositories)
-            
-            NSOperationQueue.mainQueue().addOperationWithBlock({ 
-                self.tableView.reloadData()
+        VCCount += 1
+        print ("Loaded up a new TVC \(VCCount)")
+                                                //weakSelf is an optional
+        store.getRepositoriesWithCompletion { [weak weakSelf = self ] in
+//            print (weakSelf?.store.repositories)
+                                                                //with unowned make sure that you are not getting rid of me.foo() before the ReposTVControler
+            NSOperationQueue.mainQueue().addOperationWithBlock({ [unowned me = self ] in
+                me.tableView.reloadData()
+                
             })
         }
        
     }
+    deinit {
+        VCCount -= 1
+        print ("Removed a TVC \(VCCount)")
+    }
+    
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return store.repositories.count
     }

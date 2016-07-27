@@ -28,10 +28,26 @@
                             <outlet property="delegate" destination="jEh-SU-cpr" id="gBG-GT-1Ib"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="qKS-Ke-pkK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ash-bo-Z1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="562" y="428"/>
+            <point key="canvasLocation" x="2386" y="428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9xT-4S-H58">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aut-mV-ctd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SR7-Hh-xZO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JW2-Gs-eGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844" y="428"/>
         </scene>
     </scenes>
 </document>
