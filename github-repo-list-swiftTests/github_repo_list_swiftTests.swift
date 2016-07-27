@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import github_repo_list_swift
+@testable import github_repo_list_swiftTests
 
 class github_repo_list_swiftTests: XCTestCase {
     
